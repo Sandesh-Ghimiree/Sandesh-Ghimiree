@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Computer Institute (Sandeopedia)</title>
+
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html"> <b>Computer Institute</b></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Options <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="sidebar-left.html">Time Table</a></li>
+							<li class="active"><a href="sidebar-right.html">Clock</a></li>
+						</ul>
+					</li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
+
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+
+		<ol class="breadcrumb">
+			<li><a href="index.html">Home</a></li>
+			<li class="active">Clock</li>
+		</ol>
+
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-md-8 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Clock</h1>
+				</header>
+						
+<canvas id="canvas" width="400" height="400"
+style="background-color:black">
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+
+<h2>About Clock</h2>
+<p>
+	A clock or a timepiece is a device used to measure and indicate time. The clock is one of the oldest human inventions, meeting the need to measure intervals of time shorter than the natural units: the day, the lunar month, year and galactic year. Devices operating on several physical processes have been used over the millennia.
+
+Some predecessors to the modern clock may be considered as "clocks" that are based on movement in nature: A sundial shows the time by displaying the position of a shadow on a flat surface. There is a range of duration timers, a well-known example being the hourglass. Water clocks, along with the sundials, are possibly the oldest time-measuring instruments. A major advance occurred with the invention of the verge escapement, which made possible the first mechanical clocks around 1300 in Europe, which kept time with oscillating timekeepers like balance wheels.
+
+Traditionally, in horology, the term clock was used for a striking clock, while a clock that did not strike the hours audibly was called a timepiece. This distinction is no longer made. Watches and other timepieces that can be carried on one's person are usually not referred to as clocks. Spring-driven clocks appeared during the 15th century. During the 15th and 16th centuries, clockmaking flourished. The next development in accuracy occurred after 1656 with the invention of the pendulum clock by Christiaan Huygens. A major stimulus to improving the accuracy and reliability of clocks was the importance of precise time-keeping for navigation. The mechanism of a timepiece with a series of gears driven by a spring or weights is referred to as clockwork; the term is used by extension for a similar mechanism not used in a timepiece. The electric clock was patented in 1840, and electronic clocks were introduced in the 20th century, becoming widespread with the development of small battery-powered semiconductor devices.
+</p>
+			</article>
+			<!-- /Article -->
+			
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-right">
+
+				<div class="row widget">
+					<div class="col-xs-12">
+					<h2> Be on Time <br>
+						Don't be Late
+					</h2>
+					</div>
+				</div>
+				<div class="row widget">
+					<div class="col-xs-12">
+						<h4>Computer is World</h4>
+						<p><img src="assets/images/1.jpg" alt=""></p>
+					</div>
+				</div>
+				<div class="row widget">
+					<div class="col-xs-12">
+						<h4>You must have</h4>
+						<p><img src="assets/images/2.jpg" alt=""></p>
+					</div>
+				</div>
+
+			</aside>
+			<!-- /Sidebar -->
+
+		</div>
+	</div>	<!-- /container -->
+	
+
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Contact</h3>
+						<div class="widget-body">
+							<p>+977 9834******<br>
+								<a href="#">institute.email@computer.com</a><br>
+								<br>
+								Kathmandu, Nepal 02
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Follow me</h3>
+						<div class="widget-body">
+							<p class="follow-me-icons">
+								<a href=""><i class="fa fa-twitter fa-2"></i></a>
+								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+								<a href=""><i class="fa fa-github fa-2"></i></a>
+								<a href=""><i class="fa fa-facebook fa-2"></i></a>
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<h3 class="widget-title">Visit Again</h3>
+						<div class="widget-body">
+							Thanks for Visiting. If you fell this page is helpful please visit again and gain daily updates with Us.
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="#">Home</a> | 
+								<a href="about.html">About</a> |
+								<a href="sidebar-right.html">Sidebar</a> |
+								<a href="contact.html">Contact</a> |
+								<b><a href="signup.html">Sign up</a></b>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2022, Sandeopedia. Designed by Developer<a href="http://gettemplate.com/" rel="designer"> Sandeopedia</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+	</footer>	
+
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
+</body>
+</html>
