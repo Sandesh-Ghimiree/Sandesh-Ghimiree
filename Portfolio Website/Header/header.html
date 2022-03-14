@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandesh Ghimire Portfolio</title>
+
+  <style>
+
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Media Query for devices withi coarse pointers and no hover functionality */
+
+/* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+
+  header video {
+    display: none;
+  }
+}
+
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+
+  </style>
+</head>
+<body>
+  
+
+  <div class="header">
+    <a href="#default" class="logo">Sandesh Website</a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+  </div>
+
+
+  <header>
+
+    <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+    <div class="overlay"></div>
+  
+    <!-- The HTML5 video element that will create the background video on the header -->
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+    </video>
+  
+    <!-- The header content -->
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 style="text-align: center;color: white;width: 100%;" class="display-3">Portfolio</h1>
+          <h2  style="text-align: center;color: yellow;"  class="lead mb-0">Click photo enter Website</h2>
+
+           
+<a href="file:///D:/Html/Complete%20Project%20of%20HTML/index.html"><img border=5% style=" display: block; margin-left: auto; margin-right: auto; width: 15%;border-color: brown;border-style: groove; " src="sandesh.png" alt="photo"></a>
+
+          <h2 style="text-align: center;color: white;">Sandesh Ghimire</h2>
+ 
+        </div>
+      </div>
+    </div>
+  </header>
+ 
+<br>
+  
+<footer class="section footer-classic context-dark bg-image" style="background: #2d3246;padding: 5%;">
+  <div class="container">
+    <div class="row row-30">
+      <div class="col-md-4 col-xl-5">
+        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="https://dummyimage.com/140x37/f1f1f1/000.jpg" alt="" width="140" height="37" srcset="https://dummyimage.com/140x37/f1f1f1/000.jpg 2x"></a>
+          <p>This Website is made by Sandesh Ghimire who reads at Class: 11 on Bibhuti Vidya Mandir.</p>
+          <!-- Rights-->
+          <p class="rights"><span>©  </span><span class="copyright-year">2020</span><span> </span><span>Company</span><span> - </span><span>All Rights Reserved.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Contacts</h5>
+        <p>www.sandeshghimire.com</p>
+        <dl class="contact-list">
+          <dt>Address:</dt>
+          <dd>Bhadrapur: 10, Jhapa, Nepal</dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>email:</dt>
+          <dd><a href="https://www.facebook.com/profile.php?id=100072465883549">Sandesh Ghimire</a></dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>phones:</dt>
+          <dd><a href="tel:#">98567438</a> <span>or</span> <a href="tel:#">9807865678</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-4 col-xl-3">
+        
+        <ul class="nav-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Wed developer</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li><a href="#">Social media</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters social-container">
+    <div class="col"><a class="social-inner" href="https://www.facebook.com/profile.php?id=100072465883549"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+
+    <div class="col"><a class="social-inner" href="https://www.instagram.com/sandesh.ghimi.re.re/?hl=en"><span class="icon mdi mdi-instagram"></span><span>Instagram</span></a></div>
+
+    <div class="col"><a class="social-inner" href="https://www.tiktok.com/@sandeopedia"><span class="icon mdi mdi-twitter"></span><span>Tiktok</span></a></div>
+
+    <div class="col"><a class="social-inner" href="https://www.youtube.com/channel/UCtV-pu5WAIv9X336FhmgWlw/null"><span class="icon mdi mdi-youtube-play"></span><span>Youtube</span></a></div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
