@@ -1,0 +1,41 @@
+
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: green;
+    color: white;
+    padding: 10px;
+}
+
+#txt{
+    text-align: center;
+    background-color: brown;
+    color: white;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid black;
+}
+
+
+.real{
+    text-align: center;
+    font-size: 30px;
+    font-family: fantasy;
+    padding: 30px;
+}
+
+.copy{
+    text-align: center;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 30px;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 100px;
+}
