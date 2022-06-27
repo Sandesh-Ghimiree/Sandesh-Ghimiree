@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Sandesh-Ghimiree
-- 👀 I’m interested in website
-- 🌱 I’m currently learning HTML, CSS, JS, C ............
-- 💞️ I’m looking to collaborate on Website
+- 👀 I’m interested in Web Development
+- 🌱 I’m currently learning HTML, CSS, JS, C , C++, Python etc............
+- 💞️ I’m looking to collaborate my best with different Language
 - 📫 I want to reach my achievement
 
 <!---
